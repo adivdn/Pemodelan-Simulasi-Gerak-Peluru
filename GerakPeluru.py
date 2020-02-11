@@ -22,6 +22,8 @@ speed = float(input('Masukkan Kecepatan : '))
 degree = float(input('Masukkan Sudut Kemiringan : '))
 timedelta = float(input('Masukkan Time Delta : '))
 
+print('\n')
+
 Sin = round(math.sin(math.radians(degree)),2)
 Cos = math.cos(math.radians(degree))
 
@@ -66,7 +68,7 @@ for t in numpy.arange(0,time+timedelta,timedelta):
     arrayOfXNumerik.append(positionXNumerik)
     arrayOfYNumerik.append(positionYNumerik)
     if positionYNumerik < 0:
-        print(t)
+        print('Waktu Numerik ketika menyentuh tanah : ',t)
         break
 
 
@@ -74,16 +76,13 @@ for t in numpy.arange(0,time+timedelta,timedelta):
     
      positionXAnalitik = speedAnalitikX * t
      arrayOfXAnalitik.append(positionXAnalitik)
-  
-
-for t in numpy.arange(0,time+timedelta,timedelta):
-
-    positionYAnalitik = speedAnalitikY * t + (0.5 * g * math.pow(t,2))
-    arrayOfYAnalitik.append(positionYAnalitik)
-    if positionYAnalitik < 0:
-        print(t)
+     positionYAnalitik = speedAnalitikY * t + (0.5 * g * math.pow(t,2))
+     arrayOfYAnalitik.append(positionYAnalitik)
+     if positionYAnalitik < 0:
+        print('Waktu Analitik ketika menyentuh tanah : ',t)
+        print('\n')
         break
-    
+      
     
 print('Waktu Total : ',time)
 plt.xlabel('X')
@@ -91,7 +90,7 @@ plt.ylabel('Y')
 plt.plot(arrayOfXAnalitik,arrayOfYAnalitik,'r-o')
 plt.plot(arrayOfXNumerik,arrayOfYNumerik,'b')
 plt.legend(['Analitik','Numerik'],loc = 'best')
-plt.ylim(0,hMax)
+plt.ylim(0,hMax+0.1)
 print ('Jarak Maksimum : ',R)
 print ('Tinggi Maksimum : ',hMax)
 plt.show()
