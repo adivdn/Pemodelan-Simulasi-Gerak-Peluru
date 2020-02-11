@@ -75,7 +75,7 @@ for t in numpy.arange(0,time+timedelta,timedelta):
      positionXAnalitik = speedAnalitikX * t
      arrayOfXAnalitik.append(positionXAnalitik)
   
-g = 9.8 * -1
+
 for t in numpy.arange(0,time+timedelta,timedelta):
 
     positionYAnalitik = speedAnalitikY * t + (0.5 * g * math.pow(t,2))
