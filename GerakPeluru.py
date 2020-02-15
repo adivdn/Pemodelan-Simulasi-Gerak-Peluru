@@ -11,11 +11,9 @@ import math
 
 arrayOfXNumerik = []
 arrayOfYNumerik = []
-arrayOfNumerik = []
 
 arrayOfXAnalitik = []
 arrayOfYAnalitik = []
-arrayOfAnalitik = []
 
 
 speed = float(input('Masukkan Kecepatan : '))
@@ -36,8 +34,6 @@ atas = float(math.pow(speed,2) * math.pow(Sin,2))
 bawah = float(2*g)
 
 hMax = float(atas/bawah)
-
-tTop = speed * Sin / g
 
 R = speed * Cos * time
 
@@ -90,6 +86,7 @@ plt.ylabel('Y')
 plt.plot(arrayOfXAnalitik,arrayOfYAnalitik,'r-o')
 plt.plot(arrayOfXNumerik,arrayOfYNumerik,'b')
 plt.legend(['Analitik','Numerik'],loc = 'best')
+plt.xlim(0,R+1)
 plt.ylim(0,hMax+0.1)
 print ('Jarak Maksimum : ',R)
 print ('Tinggi Maksimum : ',hMax)
